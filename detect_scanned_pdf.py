@@ -8,14 +8,14 @@ def detect_scanned(fname):
     scanned = False
     pdf_doc = pdfplumber.open(fname)
     pages = pdf_doc.pages
-    if debug: logger.info("\n number of pages : {}".format(len(pages)))
+    print("\n number of pages : ",len(pages))
     total_text = ""
     for ind, page in enumerate(pages):
         try:
             page_extract = page.extract_text()
             if page_extract != None: return False
             else: scanned = True
-            if debug: logger.info("\n page number :{}{}".format(ind,scanned))
+            print("\n page number =", ind, ": scanned =", scanned)
 
         except Exception as e:
             if str(e) == 'None':
@@ -30,6 +30,6 @@ def detect_scanned(fname):
 if __name__ == "__main__":
     ### Test
     fname = "dataset/digital.pdf"
-    # fname = "dataset/scanned.pdf"
+    fname = "dataset/scanned.pdf"
     scanned = detect_scanned(fname)
     print("\n scanned : ", scanned)
