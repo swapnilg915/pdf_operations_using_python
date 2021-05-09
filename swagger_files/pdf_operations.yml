@@ -1,0 +1,26 @@
+API performs the given operation on uploaded pdf file
+
+---
+tags:
+- Pdf Operations API
+consumes:
+- multipart/form-data
+parameters:
+- name: file
+  key: file
+  in: formData
+  type: file
+  required: true
+  description: File that has to be uploded and processed
+- name: operation
+  key: operation
+  in: formData
+  type: string
+  required: true
+  description: operation to be performed on uploaded pdf 
+  default: extract text
+responses:
+  500:
+    description: Internal server failed.
+  200:
+    description: Uploaded and mapped successfully.

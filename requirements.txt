@@ -1,3 +1,9 @@
+flask
+flasgger
+numpy
 pdfplumber
 pytesseract
 pdf2image
+opencv-python
+PyMuPDF==1.16.18
+PyPDF2
